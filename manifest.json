@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "randomCode",
+  "author": "Ali",
+  "version": "1.0.1",
+  "description": "This is a google extension project",
+  "chrome_url_overrides":{
+    "newtab": "index.html"
+  }
+}
