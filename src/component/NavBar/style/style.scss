@@ -1,0 +1,192 @@
+@import "../../../App";
+
+.header {
+    height: 100px;
+    background-color: transparent;
+    display: inline-flex;
+    justify-content: center;
+    color: $whiteColor;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 0 40px $blackColor;
+    transition: all 0.5s ease-in-out;
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        margin: 0;
+        .img-container {
+            width: 55px;
+            img{
+                width: 100%;
+            }
+        }
+        #quickAccess {
+            display: flex;
+            justify-content: center;
+            flex: 0.84;
+            font-size: 15px;
+            height: 100%;
+
+            li {
+                margin: 0 2px;
+                @include shaping;
+                transition: $transition;
+                height: 100%;
+                display: inline-flex;
+                align-items: center;
+                font-size: 13px;
+                padding: 10px 30px;
+
+                &:hover {
+                    border-bottom: solid 4px $greenColor;
+                    color: $greenColor ;
+                }
+
+                a {
+                    color: $whiteColor;
+                }
+
+                &:hover a {
+                    color: $greenColor  !important;
+                }
+
+            }
+
+        }
+    }
+
+    .leftSide {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: solid 1px transparent;
+        transition: $transition;
+        &:hover{
+            border: solid 1px $greenColor;
+            box-shadow: 0 0 5px $greenColor;
+        }
+        .img_profile {
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            .profile{
+                &:hover{
+                    color: $greenColor;
+                }
+            }
+            .profileList {
+                background: $blackColor;
+                padding-left: 15px;
+                position: absolute;
+                min-width: 200px;
+                top: 75px;
+                right: 8px;
+                z-index: 4;
+                width: 25vw;
+                border-radius: 8px;
+                z-index: 4;
+                pointer-events: none;
+                opacity: 0;
+                transition: $transition;
+
+                li {
+                    padding: 20px 120px 20px 0;
+                    display: block;
+
+                    a {
+                        position: relative;
+                        left: 0;
+                    }
+
+                    &:hover a {
+                        left: 10px;
+                    }
+                }
+            }
+            .activeShow {
+                opacity: 1;
+                pointer-events: initial;
+            }
+            .imgContainer {
+                width: 34px;
+                height: 33px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .switchMode {
+            border: solid 1px $whiteColor;
+            background: $whiteColor;
+            color: $blackColor;
+            padding: 0 0.3rem;
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+
+            i {
+                position: relative;
+                top: 0.5px;
+                ;
+            }
+
+            .togglingBall {
+                position: absolute;
+                right: 0;
+                width: 21.9px;
+                height: 22px;
+                top: 1px;
+                background: black;
+                border-radius: 20px;
+                transition: $transition;
+            }
+        }
+    }
+}
+
+.active{
+    background: #000;
+    opacity: 0.95;
+}
+
+/* Start Screen Responsive */
+
+/* Small  */
+@media (max-width: 768px) {
+    .header {
+        .container{
+            width: 100%;
+            #quickAccess {
+                display: none;
+            }
+        }
+    }
+}
+
+/* Medium  */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Big  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End Screen Responsive */

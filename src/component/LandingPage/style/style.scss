@@ -1,0 +1,241 @@
+@import "../../../App";
+
+
+// Stylling landing page for general 
+.landing-page-section {
+    width: 100%;
+    position: relative;
+    background-image: url('../media/bg.jpeg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 100% auto;
+
+    &::before{
+        background: radial-gradient(closest-side, rgba(9, 1, 24, 0) 0, rgba(9, 1, 24, 0) 0%, $blackColor 102%);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .landing-page-container {
+        position: relative;
+        z-index: 2;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 50% 50%;
+        grid-auto-flow: dense;
+        margin-bottom: 3em;
+        padding-top: 5rem;
+        overflow: hidden;
+        .left-side {
+            .img-container {
+                position: relative;
+
+                .abs {
+                    position: absolute;
+                    width: 20vw;
+                }
+
+                .toHover {
+                    transition: $transition;
+                    transform: scale(1);
+
+                    &:hover {
+                        transform: scale(1.06);
+                    }
+                }
+
+                @keyframes floating {
+                    0% {
+                        transform: translate(0, 0px) rotate(-10deg);
+                    }
+
+                    50% {
+                        transform: translate(0, 15px) rotate(-10deg);
+                    }
+
+                    100% {
+                        transform: translate(0, -0px) rotate(-10deg);
+                    }
+                    
+                }
+                .bg-main {
+                    position: relative;
+                    top: 8rem;
+                    border-radius: 50%;
+                    width: 100%;
+                    filter: brightness(50%) drop-shadow(0 0 6rem rgba(93, 195, 189, 0.28));
+                    animation-name: floating;
+                    animation-duration: 3s;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: ease-in-out;
+                }
+            }
+        }
+
+        .right-side {
+            display: grid;
+            justify-items: start;
+
+            h1 {
+                color: $whiteColor;
+                font-size: 76px;
+                line-height: 78px;
+                text-shadow: 1px 0 6px $blackColor;
+                margin-bottom: 20px;
+
+                span {
+                    color: $greenColor;
+                }
+            }
+
+            h2 {
+                color: #00a149;
+                font-size: 32px;
+                line-height: 36px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: $whiteColor;
+                font-size: 15px;
+                line-height: 24px;
+                letter-spacing: .45px;
+                margin-bottom: 20px;
+            }
+
+            .checking-btn {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 3em;
+                filter: drop-shadow(0 0 6rem rgba(93, 195, 189, 0.28));
+
+                a {
+                    @include btn();
+                    box-shadow: 0px 0px  15px rgba(93, 195, 189, 0.28);
+                    width: 150px;
+                    font-weight: 700;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+
+}
+
+// ===================
+// Start Screen Responsive 
+// ===================
+/* Big Screens */
+@media (max-width: 1200px) {}
+
+/* Medium Screens */
+@media (max-width: 992px) {
+
+    .landing-page-section {
+        height: 100%;
+
+        .landing-page-container {
+            background-size: cover;
+            background-position: 10rem 0rem;
+
+            .left-side {
+                display: block;
+
+                .img-container {
+                    .bg-food-tomatto {
+                        left: -3rem;
+                    }
+
+                    .bg-food-dots {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Small Screens */
+@media (max-width: 768px) {
+
+    .landing-page-section {
+        background-size: cover;
+        background-position: right;
+        .landing-page-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10rem;
+
+            .left-side {
+                margin-bottom: 4rem;
+
+                .img-container {
+                    .bg-main {
+                        left: 0;
+                        z-index: 12;
+                    }
+
+                }
+            }
+
+            .right-side {
+                text-align: center;
+                justify-items: center;
+
+                h1 {
+                    font-size: 48px;
+                }
+
+                h2 {
+                    font-size: 28px;
+                }
+
+                .checking-btn {
+                    display: grid;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .homeOne {
+        height: inherit;
+
+    }
+
+    .homeTwo {
+        height: inherit;
+
+        .landing-page-container {
+            background-size: 120% auto;
+
+            .left-side {
+                margin-bottom: 2rem;
+                
+            }
+
+            .right-side {
+                h1 {
+                    font-size: 55px;
+
+                    span {
+                        font-size: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ===================
+// End Screen Responsive 
+// ===================
